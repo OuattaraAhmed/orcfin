@@ -97,11 +97,11 @@ class _TextRecognitionWidgetState extends State<TextRecognitionWidget> {
 
   Future copyToClipboard() async {
     final uri =
-        Uri.parse("http://192.168.43.108/image_upload_php_mysql/upload.php");
+        Uri.parse("http://172.16.21.116/ocr/image_upload_php_mysql/upload.php");
     var request = http.MultipartRequest('POST', uri);
     //request.fields['content'] = text;
     request.fields['content'] = text;
-    //request.fields['name'] =nameController.text;
+    request.fields['name'] =nameController.text;
     //request.fields['content'] = text;
     // _image.path
     var pic = await http.MultipartFile.fromPath("image", image.path);

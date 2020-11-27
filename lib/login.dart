@@ -5,6 +5,7 @@ import 'package:firebase_ml_text_recognition/main.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:firebase_ml_text_recognition/widget/text_recognition_widget.dart';
+import 'reception.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -16,7 +17,7 @@ class _LoginState extends State<Login> {
   TextEditingController pass = TextEditingController();
 
   Future login() async {
-    var url = "http://192.168.43.108/image_upload_php_mysql/login.php";
+    var url = "http://172.16.21.116/ocr/image_upload_php_mysql/login.php";
     var response = await http.post(url, body: {
       "email": email.text,
       "password": pass.text,
@@ -26,7 +27,7 @@ class _LoginState extends State<Login> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => TextRecognitionWidget(),
+          builder: (context) => MainPage(),
         ),
       );
     }
